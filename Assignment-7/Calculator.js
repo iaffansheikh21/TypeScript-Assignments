@@ -1,4 +1,5 @@
 import inquirer from 'inquirer';
+import chalk from 'chalk';
 const questions = [{
         name: 'FirstNUmber',
         type: 'number',
@@ -39,25 +40,25 @@ async function Calculate() {
         var answers = await inquirer.prompt(questions);
         switch (answers.operations) {
             case "multiplication":
-                console.log(`${answers.FirstNUmber} * ${answers.SecondNUmber} = ${answers.FirstNUmber * answers.SecondNUmber}`);
+                console.log(chalk.green.bold(`${answers.FirstNUmber} * ${answers.SecondNUmber} = ${answers.FirstNUmber * answers.SecondNUmber}`));
                 break;
             case "addition":
-                console.log(`${answers.FirstNUmber} + ${answers.SecondNUmber} = ${answers.FirstNUmber + answers.SecondNUmber}`);
+                console.log(chalk.yellow.bold(`${answers.FirstNUmber} + ${answers.SecondNUmber} = ${answers.FirstNUmber + answers.SecondNUmber}`));
                 break;
             case "division":
-                console.log(`${answers.FirstNUmber} / ${answers.SecondNUmber} = ${answers.FirstNUmber / answers.SecondNUmber}`);
+                console.log(chalk.yellowBright.bold(`${answers.FirstNUmber} / ${answers.SecondNUmber} = ${answers.FirstNUmber / answers.SecondNUmber}`));
                 break;
             case "subtraction":
-                console.log(`${answers.FirstNUmber} - ${answers.SecondNUmber} = ${answers.FirstNUmber - answers.SecondNUmber}`);
+                console.log(chalk.blue.bold(`${answers.FirstNUmber} - ${answers.SecondNUmber} = ${answers.FirstNUmber - answers.SecondNUmber}`));
                 break;
             case "modulus":
-                console.log(`${answers.FirstNUmber} % ${answers.SecondNUmber} = ${answers.FirstNUmber % answers.SecondNUmber}`);
+                console.log(chalk.grey.bold(`${answers.FirstNUmber} % ${answers.SecondNUmber} = ${answers.FirstNUmber % answers.SecondNUmber}`));
                 break;
             case "exponent":
-                console.log(`${answers.FirstNUmber} ^ ${answers.SecondNUmber} = ${Math.pow(answers.FirstNUmber, answers.SecondNUmber)}`);
+                console.log(chalk.magenta.bold(`${answers.FirstNUmber} ^ ${answers.SecondNUmber} = ${Math.pow(answers.FirstNUmber, answers.SecondNUmber)}`));
                 break;
             default:
-                console.log("Inavlid Operation");
+                console.log(chalk.bgRedBright.white.bold("Invalid Operation"));
         }
     }
     catch (error) {
